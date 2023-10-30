@@ -8,7 +8,7 @@ import SignIn from '../pages/sign-in/SignIn';
 const App = () => {
   // useEffect permet de modifier le titre de la page
   useEffect(() => {
-    document.title = 'Argent Bank';
+    document.title = 'Argent Bank - Home Page';
   }, []);
   return (
     <Router>
@@ -22,6 +22,6 @@ const App = () => {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
