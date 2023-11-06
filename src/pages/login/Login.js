@@ -42,7 +42,7 @@ function SignIn() {
           localStorage.removeItem('email');
         }
 
-        navigate('/profil');
+        navigate('/profile');
       } else {
         localStorage.removeItem('token');
         setErrorMsg('Erreur d’identifiant ou de mot de passe');
