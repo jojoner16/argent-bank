@@ -4,7 +4,7 @@ import Header from '../components/header/Header';
 import Home from '../pages/home/Home';
 import Footer from '../components/footer/Footer';
 import Login from '../pages/login/Login';
-import Profil from '../pages/profil/Profil';
+import Profile from '../pages/profile/Profile';
 
 const App = () => {
   // useEffect permet de modifier le titre de la page
@@ -18,7 +18,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profil" element={<Profil />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
         <Footer />
       </div>
