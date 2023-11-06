@@ -23,20 +23,20 @@ function Header() {
         <h1 className="sr-only">Argent Bank</h1>
       </Link>
       <div>
-        {location.pathname === '/user' && (
-          <Link to="/user" className="main-nav-item">
+        {location.pathname === '/profil' && (
+          <Link to="/profil" className="main-nav-item">
             <i className="fa fa-user-circle"></i>
             Tony
           </Link>
         )}
-        {location.pathname === '/user' && (
+        {location.pathname === '/profil' && (
           <Link to="/" className="main-nav-item" onClick={handleSignOut}>
             <i className="fa fa-sign-out"></i>
             Sign Out
           </Link>
         )}
-        {location.pathname !== '/user' && (
-          <Link to="/sign-in" className="main-nav-item">
+        {location.pathname !== '/profil' && (
+          <Link to="/login" className="main-nav-item">
             <i className="fa fa-user-circle"></i>
             Sign In
           </Link>

@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from '../components/header/Header';
 import Home from '../pages/home/Home';
 import Footer from '../components/footer/Footer';
-import SignIn from '../pages/sign-in/SignIn';
-import User from '../pages/user/User';
+import Login from '../pages/login/Login';
+import Profil from '../pages/profil/Profil';
 
 const App = () => {
   // useEffect permet de modifier le titre de la page
@@ -17,8 +17,8 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/user" element={<User />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profil" element={<Profil />} />
         </Routes>
         <Footer />
       </div>
