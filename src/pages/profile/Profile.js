@@ -10,6 +10,8 @@ function ProfilePage() {
   const token = useSelector((state) => state.user.token);
   const [toggleEditUsername, setToggleEditUsername] = useState(false);
 
+  const [isEditing, setIsEditing] = useState(false);
+
   async function fetchData() {
     try {
       const data = await fetch('http://localhost:3001/api/v1/user/profile', {
@@ -50,20 +52,24 @@ function ProfilePage() {
   // Ajout de la fonction pour masquer le formulaire lors du clic sur "Cancel"
   const handleCancelEdit = () => {
     setToggleEditUsername(false);
+    setIsEditing(false);
   };
 
   return (
-    <main className="main bg-dark">
+    <main className={`main bg-dark ${isEditing ? 'editing' : ''}`}>
       <div className="header">
-        <h1>
+        <h1 className={isEditing ? 'editing' : ''}>
           Welcome back
           <br />
-          {dataUser.firstName + ' ' + dataUser.lastName + ' !'}
+          <span>{dataUser.firstName + ' ' + dataUser.lastName + ' !'}</span>
         </h1>
         {!toggleEditUsername ? (
           <button
-            onClick={() => setToggleEditUsername(true)}
-            className="edit-button"
+            onClick={() => {
+              setToggleEditUsername(true);
+              setIsEditing(true);
+            }}
+            className={`edit-button ${isEditing ? 'editing' : ''}`}
           >
             Edit Name
           </button>
@@ -78,7 +84,11 @@ function ProfilePage() {
           <p className="account-amount-description">Available Balance</p>
         </div>
         <div className="account-content-wrapper cta">
-          <button className="transaction-button">View transactions</button>
+          <button
+            className={`transaction-button ${isEditing ? 'editing' : ''}`}
+          >
+            View transactions
+          </button>
         </div>
       </section>
       <section className="account">
@@ -88,7 +98,11 @@ function ProfilePage() {
           <p className="account-amount-description">Available Balance</p>
         </div>
         <div className="account-content-wrapper cta">
-          <button className="transaction-button">View transactions</button>
+          <button
+            className={`transaction-button ${isEditing ? 'editing' : ''}`}
+          >
+            View transactions
+          </button>
         </div>
       </section>
       <section className="account">
@@ -98,7 +112,11 @@ function ProfilePage() {
           <p className="account-amount-description">Current Balance</p>
         </div>
         <div className="account-content-wrapper cta">
-          <button className="transaction-button">View transactions</button>
+          <button
+            className={`transaction-button ${isEditing ? 'editing' : ''}`}
+          >
+            View transactions
+          </button>
         </div>
       </section>
     </main>
