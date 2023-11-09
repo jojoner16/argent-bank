@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../../styles/pages/Profil.css';
 import { setGetProfile } from '../../features/profile/profileSlice';
 import { useSelector, useDispatch } from 'react-redux';
+import EditUsername from '../../components/editUserName/EditUserName';
 
 function ProfilePage() {
   const dispatch = useDispatch();
@@ -46,8 +47,9 @@ function ProfilePage() {
     fetchData();
   });
 
-  const handleEditUsername = () => {
-    setToggleEditUsername(!toggleEditUsername);
+  // Ajout de la fonction pour masquer le formulaire lors du clic sur "Cancel"
+  const handleCancelEdit = () => {
+    setToggleEditUsername(false);
   };
 
   return (
@@ -58,9 +60,15 @@ function ProfilePage() {
           <br />
           {dataUser.firstName + ' ' + dataUser.lastName + ' !'}
         </h1>
-        <button onClick={handleEditUsername} className="edit-button">
-          {!toggleEditUsername ? 'Edit Name' : 'Close'}
-        </button>
+        {!toggleEditUsername ? (
+          <button
+            onClick={() => setToggleEditUsername(true)}
+            className="edit-button"
+          >
+            Edit Name
+          </button>
+        ) : null}
+        {toggleEditUsername && <EditUsername onCancel={handleCancelEdit} />}
       </div>
       <h2 className="sr-only">Accounts</h2>
       <section className="account">

@@ -10,11 +10,15 @@ export const profileSlice = createSlice({
       state.lastName = payload.data.body.lastName;
       state.userName = payload.data.body.userName;
     },
-    setNewUserName: (state, { payload }) => {
-      state.userName = payload.response.userName;
+    updateFirstName: (state, { payload }) => {
+      state.firstName = payload.newFirstName;
+    },
+    updateLastName: (state, { payload }) => {
+      state.lastName = payload.newLastName;
     },
   },
 });
 
-export const { setGetProfile, setNewUserName } = profileSlice.actions;
+export const { setGetProfile, updateFirstName, updateLastName } =
+  profileSlice.actions;
 export default profileSlice.reducer;
