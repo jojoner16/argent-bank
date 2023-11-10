@@ -1,13 +1,21 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import Header from '../components/header/Header';
 import Home from '../pages/home/Home';
 import Footer from '../components/footer/Footer';
 import Login from '../pages/login/Login';
 import Profile from '../pages/profile/Profile';
+import NotFound from '../pages/error/Error';
+import { useSelector } from 'react-redux';
 
 const App = () => {
-  // useEffect permet de modifier le titre de la page
+  const isLoggedIn = useSelector((state) => state.user.token !== null);
+  // permet de modifier le titre de la page
   useEffect(() => {
     document.title = 'Argent Bank - Home Page';
   }, []);
@@ -18,7 +26,13 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
+          {/* Utilise une fonction pour conditionner l'accès à la page de profil */}
+          <Route
+            path="/profile"
+            element={isLoggedIn ? <Profile /> : <Navigate to="/404" />}
+          />
+          {/* Route pour toutes les autres pages non définies */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>

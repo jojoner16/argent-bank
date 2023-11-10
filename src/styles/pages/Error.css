@@ -1,0 +1,27 @@
+.error-container {
+  margin: auto;
+  height: 80vh;
+  margin-top: 12vh;
+}
+
+.error-heading {
+  font-size: 4rem;
+  color: #00bc77;
+}
+
+.error-message {
+  margin-bottom: 20px;
+}
+
+.error-link {
+  display: inline-block;
+  width: 150px;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
