@@ -2,16 +2,25 @@ import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../assets/argentBankLogo.png';
 import '../../styles/components/Header.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSignOut } from '../../features/login/loginSlice';
 
 function Header() {
+  const token = useSelector((state) => state.user.token);
   const location = useLocation();
   const navigate = useNavigate();
   const dataUser = useSelector((state) => state.profile);
+  const dispatch = useDispatch();
 
   const handleSignOut = () => {
-    // Redirige l'utilisateur vers la page d'accueil
-    navigate('/');
+    // Ajout d'une confirmation avant de déconnecter
+    const confirmSignOut = window.confirm('Are you sure you want to sign out?');
+    if (confirmSignOut) {
+      localStorage.clear();
+      dispatch(setSignOut({ token }));
+      // Redirige l'utilisateur vers la page d'accueil
+      navigate('/');
+    }
   };
 
   return (
