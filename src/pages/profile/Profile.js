@@ -56,7 +56,7 @@ function ProfilePage() {
   };
 
   return (
-    <main className={`main bg-dark ${isEditing ? 'editing' : ''}`}>
+    <main className="main bg-dark">
       <div className="header">
         <h1 className={isEditing ? 'editing' : ''}>
           Welcome back
@@ -84,11 +84,7 @@ function ProfilePage() {
           <p className="account-amount-description">Available Balance</p>
         </div>
         <div className="account-content-wrapper cta">
-          <button
-            className={`transaction-button ${isEditing ? 'editing' : ''}`}
-          >
-            View transactions
-          </button>
+          <button className="transaction-button">View transactions</button>
         </div>
       </section>
       <section className="account">
@@ -98,11 +94,7 @@ function ProfilePage() {
           <p className="account-amount-description">Available Balance</p>
         </div>
         <div className="account-content-wrapper cta">
-          <button
-            className={`transaction-button ${isEditing ? 'editing' : ''}`}
-          >
-            View transactions
-          </button>
+          <button className="transaction-button">View transactions</button>
         </div>
       </section>
       <section className="account">
@@ -112,11 +104,7 @@ function ProfilePage() {
           <p className="account-amount-description">Current Balance</p>
         </div>
         <div className="account-content-wrapper cta">
-          <button
-            className={`transaction-button ${isEditing ? 'editing' : ''}`}
-          >
-            View transactions
-          </button>
+          <button className="transaction-button">View transactions</button>
         </div>
       </section>
     </main>
