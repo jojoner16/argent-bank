@@ -84,24 +84,7 @@
   }
 }
 
-/* Couleur de fond lors de l'édition (edit name) */
-.main.editing {
-  background-color: #dfe6ed;
-}
-
-/* Couleur du texte Welcome back en noir lors de l'édition (edit name) */
-.header h1.editing {
-  color: black;
-}
-
 /* Cache les noms et prénoms lors de l'édition (edit name) */
 .header h1.editing span {
   display: none;
-}
-
-/* Couleur de fond des boutons (View Transactions) lors de l'édition (edit name) */
-.transaction-button.editing {
-  background-color: #695df5;
-  border: none;
-  border-radius: 4px;
 }
