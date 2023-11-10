@@ -7,7 +7,7 @@ import {
 } from '../../features/profile/profileSlice';
 import '../../styles/components/EditUserName.css';
 
-const EditUsername = ({ onCancel }) => {
+function EditUsername({ onCancel }) {
   const firstName = useSelector((state) => state.profile.firstName);
   const lastName = useSelector((state) => state.profile.lastName);
   const token = useSelector((state) => state.user.token);
@@ -83,6 +83,6 @@ const EditUsername = ({ onCancel }) => {
       </form>
     </div>
   );
-};
+}
 
 export default EditUsername;
