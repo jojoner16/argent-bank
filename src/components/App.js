@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -15,10 +15,7 @@ import { useSelector } from 'react-redux';
 
 const App = () => {
   const isLoggedIn = useSelector((state) => state.user.token !== null);
-  // permet de modifier le titre de la page
-  useEffect(() => {
-    document.title = 'Argent Bank - Home Page';
-  }, []);
+
   return (
     <Router>
       <div className="App">

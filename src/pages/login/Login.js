@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../styles/pages/Login.css';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setSignIn } from '../../features/login/loginSlice';
 
 function SignIn() {
+  // permet de modifier le titre de la page
+  useEffect(() => {
+    document.title = 'Argent Bank - Login Page';
+  }, []);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

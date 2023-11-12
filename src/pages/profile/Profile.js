@@ -5,6 +5,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import EditUsername from '../../components/editUserName/EditUserName';
 
 function ProfilePage() {
+  // permet de modifier le titre de la page
+  useEffect(() => {
+    document.title = 'Argent Bank - Profile Page';
+  }, []);
   const dispatch = useDispatch();
   const dataUser = useSelector((state) => state.profile);
   const token = useSelector((state) => state.user.token);
