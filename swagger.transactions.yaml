@@ -1,127 +1,125 @@
 swagger: '2.0'
 info:
-  title: Argent Bank API Transactions
+  title: Argent Bank Transactions API
   version: '1.0.0'
 host: localhost:3001
 basePath: /api/v1
 schemes:
   - http
 paths:
-  /users:
-    get:
-      summary: Retrieve all users
-      description: Retrieve all users account.
-      security:
-        - BearerAuth: []
-      responses:
-        200:
-          description: Successfully retrieved all users.
-        400:
-          description: Unauthorized access to retrieve all users.
-        501:
-          description: Internal Server Error.
-
   /users/{user_id}/transactions:
     get:
-      summary: Retrieve all transactions of an account
-      description: Retrieve all transactions associated with a specific account.
+      summary: Retrieve all transactions for the current month, grouped by account
+      description: Retrieve all transactions for the current month, grouped by account for a specific user.
       security:
         - BearerAuth: []
       parameters:
         - name: user_id
           in: path
-          description: The ID of the account for which to fetch transactions.
+          description: The ID of the user to retrieve transactions for.
           required: true
           type: integer
       responses:
         200:
           description: Successfully retrieved all transactions.
         400:
-          description: Unauthorized access to retrieve all transactions.
+          description: Unauthorized access to retrieve transactions.
         404:
-          description: Account not found.
+          description: User not found.
         501:
           description: Internal Server Error.
-  /transactions/{transaction_id}/category:
+
+  /users/{user_id}/transactions/{transaction_id}:
+    get:
+      summary: Retrieve details of a specific transaction
+      description: Retrieve details of a specific transaction for a specific user.
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user.
+          required: true
+          type: integer
+        - name: transaction_id
+          in: path
+          description: The ID of the transaction to retrieve details.
+          required: true
+          type: integer
+      responses:
+        200:
+          description: Successfully retrieved transaction details.
+        400:
+          description: Unauthorized access to retrieve transaction details.
+        404:
+          description: User or transaction not found.
+        501:
+          description: Internal Server Error.
+
     put:
-      summary: Edit a transaction's category
-      description: Edit the category of a specific transaction in my API.
+      summary: Update information on a specific transaction
+      description: Update information on a specific transaction for a specific user.
       security:
         - BearerAuth: []
       parameters:
-        - name: transaction_id
+        - name: user_id
           in: path
-          description: The ID of the transaction to edit.
+          description: The ID of the user.
           required: true
           type: integer
-        - name: category
-          in: body
-          description: The new category to assign to the transaction.
-          required: true
-          schema:
-            type: string
-      responses:
-        200:
-          description: Transaction's category edited successfully.
-        400:
-          description: Unauthorized access to edit the transaction.
-        404:
-          description: Transaction not found.
-        501:
-          description: Internal Server Error.
-  /transactions/{transaction_id}/note:
-    post:
-      summary: Add a note to a transaction
-      description: Add a note to a specific transaction in my API.
-      security:
-        - BearerAuth: []
-      parameters:
         - name: transaction_id
           in: path
-          description: The ID of the transaction to add a note.
+          description: The ID of the transaction to update.
           required: true
           type: integer
-        - name: note
+        - name: update_data
           in: body
-          description: The note to add to the transaction.
+          description: The data to update for the transaction.
           required: true
           schema:
-            type: string
+            type: object
+            properties:
+              field1:
+                type: string
+              field2:
+                type: integer
+              # Add more fields as needed
       responses:
         200:
-          description: Note added to the transaction successfully.
+          description: Transaction information updated successfully.
         400:
-          description: Unauthorized access to add a note to the transaction.
+          description: Unauthorized access to update transaction information.
         404:
-          description: Transaction or account not found.
+          description: User or transaction not found.
         501:
           description: Internal Server Error.
-  /transactions/{transaction_id}/note/{note_id}:
+
     delete:
-      summary: Delete a note of a transaction
-      description: Delete a note from a specific transaction in my API.
+      summary: Delete a specific transaction
+      description: Delete a specific transaction for a specific user.
       security:
         - BearerAuth: []
       parameters:
-        - name: transaction_id
+        - name: user_id
           in: path
-          description: The ID of the transaction to delete a note from.
+          description: The ID of the user.
           required: true
           type: integer
-        - name: note_id
+        - name: transaction_id
           in: path
-          description: The ID of the note you want to delete.
+          description: The ID of the transaction to delete.
           required: true
           type: integer
       responses:
         200:
-          description: Note deleted from the transaction successfully.
+          description: Transaction deleted successfully.
         400:
-          description: Unauthorized access to delete the note from the transaction.
+          description: Unauthorized access to delete transaction.
         404:
-          description: Transaction or note not found.
+          description: User or transaction not found.
         501:
           description: Internal Server Error.
+
 securityDefinitions:
   BearerAuth:
     type: apiKey
