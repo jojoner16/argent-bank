@@ -83,7 +83,6 @@ paths:
                 type: string
               field2:
                 type: integer
-              # Add more fields as needed
       responses:
         200:
           description: Transaction information updated successfully.
