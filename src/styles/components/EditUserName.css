@@ -38,3 +38,10 @@
   font-weight: bold;
   cursor: pointer;
 }
+
+/* Ajout des règles de style pour la version mobile */
+@media (max-width: 919px) {
+  .inputs {
+    flex-direction: column;
+  }
+}

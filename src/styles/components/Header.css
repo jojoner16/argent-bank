@@ -50,3 +50,18 @@
   max-width: 100%;
   width: 200px;
 }
+
+/* Ajout des règles de style pour la version mobile */
+@media (max-width: 919px) {
+  .main-nav {
+    padding: 10px;
+  }
+
+  .main-nav-profile {
+    font-size: 1.2em;
+  }
+
+  .nav-item-text {
+    display: none;
+  }
+}

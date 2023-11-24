@@ -88,3 +88,10 @@
 .header h1.editing span {
   display: none;
 }
+
+/* Ajout des règles de style pour la version mobile */
+@media (max-width: 919px) {
+  .main.bg-dark {
+    margin-bottom: 4em;
+  }
+}
