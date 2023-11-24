@@ -105,3 +105,37 @@ body {
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
+
+/* Ajout des règles de style pour la version mobile */
+@media (max-width: 919px) {
+  .hero {
+    height: 250px;
+    background-position: 0% 50%;
+  }
+
+  .hero-content {
+    width: 80%;
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  .hero-content .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .hero-content .text {
+    font-size: 1rem;
+  }
+
+  .features {
+    flex-direction: column;
+    margin-bottom: 4em;
+  }
+
+  .feature-item {
+    padding: 1rem;
+  }
+
+  .feature-item-title {
+    font-size: 1.1rem;
+  }
+}
