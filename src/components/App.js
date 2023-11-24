@@ -26,7 +26,7 @@ const App = () => {
           {/* Utilise une fonction pour conditionner l'accès à la page de profil */}
           <Route
             path="/profile"
-            element={isLoggedIn ? <Profile /> : <Navigate to="/404" />}
+            element={isLoggedIn ? <Profile /> : <Navigate to="/" />}
           />
           {/* Route pour toutes les autres pages non définies */}
           <Route path="*" element={<NotFound />} />
