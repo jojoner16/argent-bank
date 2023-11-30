@@ -70,7 +70,20 @@
   cursor: pointer;
 }
 
-@media (min-width: 720px) {
+/* Cache les noms et prénoms lors de l'édition (edit name) */
+.header h1.editing span {
+  display: none;
+}
+
+/* Ajout des règles de style pour la version mobile */
+@media (max-width: 767px) {
+  .main.bg-dark {
+    margin-bottom: 4em;
+  }
+}
+
+/* Ajout des règles de style pour la version tablette */
+@media screen and (min-width: 768px) and (max-width: 991px) {
   .account {
     flex-direction: row;
   }
@@ -81,17 +94,5 @@
 
   .transaction-button {
     width: 200px;
-  }
-}
-
-/* Cache les noms et prénoms lors de l'édition (edit name) */
-.header h1.editing span {
-  display: none;
-}
-
-/* Ajout des règles de style pour la version mobile */
-@media (max-width: 919px) {
-  .main.bg-dark {
-    margin-bottom: 4em;
   }
 }

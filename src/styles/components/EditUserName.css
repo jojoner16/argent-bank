@@ -40,8 +40,25 @@
 }
 
 /* Ajout des règles de style pour la version mobile */
-@media (max-width: 919px) {
+@media (max-width: 767px) {
   .inputs {
     flex-direction: column;
+  }
+}
+
+/* Ajout des règles de style pour la version tablette */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .buttons {
+    width: 200px;
+    padding: 8px;
+    font-size: 1.1rem;
+  }
+
+  .input-grey input {
+    padding: 8px;
+  }
+
+  .edit-button {
+    font-size: 1.1rem;
   }
 }

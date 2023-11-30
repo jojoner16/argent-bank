@@ -52,7 +52,7 @@
 }
 
 /* Ajout des règles de style pour la version mobile */
-@media (max-width: 919px) {
+@media (max-width: 767px) {
   .main-nav {
     padding: 10px;
   }
@@ -63,5 +63,21 @@
 
   .nav-item-text {
     display: none;
+  }
+}
+
+/* Ajout des règles de style pour la version tablette */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .main-nav-profile {
+    font-size: 1.5em;
+  }
+
+  .nav-item-text {
+    display: inline;
+  }
+
+  .main-nav-logo-image {
+    max-width: 100%;
+    width: 250px;
   }
 }

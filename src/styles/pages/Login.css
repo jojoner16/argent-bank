@@ -70,8 +70,31 @@
 }
 
 /* Ajout de styles pour les petits écrans */
-@media (max-width: 919px) {
+@media (max-width: 767px) {
   .sign-in-content {
     padding: 1rem;
+  }
+}
+
+/* Ajout des règles de style pour la version tablette */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .sign-in-content {
+    width: 80%;
+    height: auto;
+    margin-top: 15rem;
+    padding: 2rem;
+  }
+
+  .sign-in-button {
+    margin-top: 1rem;
+  }
+
+  .input-wrapper {
+    margin-bottom: 1.2rem;
+  }
+
+  .input-wrapper input {
+    padding: 8px;
+    margin-top: 4px;
   }
 }
