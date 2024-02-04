@@ -14,7 +14,6 @@
   background-color: #fff;
   width: 80%;
   margin: 0 auto;
-  flex-direction: column;
   padding: 1.5rem;
   box-sizing: border-box;
   text-align: left;
@@ -38,11 +37,6 @@
   font-weight: normal;
 }
 
-.account-content-wrapper {
-  width: 100%;
-  flex: 1;
-}
-
 .edit-button {
   border-color: #00bc77;
   background-color: #00bc77;
@@ -59,11 +53,9 @@
 
 .transaction-button {
   display: block;
-  width: 100%;
-  padding: 8px;
+  padding: 8px 20px 8px 20px;
   font-size: 1.1rem;
   font-weight: bold;
-  margin-top: 1rem;
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
@@ -79,6 +71,25 @@
 @media (max-width: 767px) {
   .main.bg-dark {
     margin-bottom: 4em;
+  }
+
+  .account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    background-color: #fff;
+    width: 80%;
+    margin: 0 auto;
+    flex-direction: column;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+
+  .transaction-button {
+    margin-top: 1rem;
   }
 }
 
